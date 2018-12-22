@@ -15,15 +15,15 @@ import { FuseConfirmDialogModule } from '@fuse/components';
 import { HassleService } from './hasslefree.service';
 import { LeadComponent } from './lead/lead.componenet';
 import { ReactiveFormsModule } from '@angular/forms';
-
+//import { AppointmentComponent } from './appointment/appointment.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 
 const routes: Routes = [
     {
         path: '**',
         component: LeadComponent,
-        children: [],
-        
+        children: [], 
     }
 ];
 
@@ -60,7 +60,9 @@ const routes: Routes = [
 
         FuseSharedModule,
         FuseConfirmDialogModule,
-        FuseSidebarModule
+        FuseSidebarModule, 
+        OwlDateTimeModule, 
+        OwlNativeDateTimeModule,
     ],
   
   providers      : [

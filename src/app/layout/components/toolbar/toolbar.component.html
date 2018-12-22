@@ -41,7 +41,7 @@
 
         </div>
 
-        <div class="" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
+        <div class="menu-bar" fxFlex="0 1 auto" fxLayout="row" fxLayoutAlign="start center">
 
             <!-- <button mat-button [matMenuTriggerFor]="userMenu"
                     class="user-button">
@@ -72,9 +72,17 @@
             </mat-menu> -->
 
             <div class="toolbar-separator"></div>
-            <button mat-icon-button class="navbar-toggle-button">
-        <mat-icon class="secondary-text">add</mat-icon>
-    </button> 
+            <button mat-icon-button class="navbar-toggle-button" (click)="openMenu();">
+                <mat-icon class="secondary-text">add</mat-icon>
+            </button> 
+            <!-- <div class="open-menu">
+                <div class="entities">
+                    <h5>Entities</h5>
+                </div>
+                <div class="recent-sales">
+                    <h5>Recent sales activities</h5>
+                </div>
+            </div> -->
             <!-- <fuse-search-bar (input)="search($event)"></fuse-search-bar> -->
 
             <div class="toolbar-separator"></div>

@@ -41,7 +41,7 @@ export const navigation: FuseNavigation[] = [
         title: 'Appoinment',
         type: 'item',
         icon: 'date_range',
-        url: ' '
+        url: '/apps/hasslefree/appointment'
     },
     {
         id: 'reports',
