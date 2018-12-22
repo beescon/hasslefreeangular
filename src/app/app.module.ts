@@ -18,10 +18,8 @@ import {
     FuseSearchBarModule, FuseShortcutsModule
 } from '@fuse/components';
 import {
-    MatButtonModule, MatIconModule, MatToolbarModule,
-    MatDividerModule, MatListModule, MatSlideToggleModule,
-    MatMenuModule, MatAutocompleteModule, MatInputModule,
-    MatCheckboxModule, MatFormFieldModule
+    MatButtonModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSlideToggleModule, MatToolbarModule, MatTooltipModule
+,MatOptionModule,MatSelectModule,MatStepperModule,MatAutocompleteModule,MatCheckboxModule,MatRadioModule,MatChipsModule, MatDividerModule, MatListModule, MatMenuModule
 } from '@angular/material';
 import { fuseConfig } from 'app/fuse-config';
 import { FuseConfigService } from '@fuse/services/config.service';
@@ -39,6 +37,8 @@ import {
 // import { LayoutModule } from 'app/layout/layout.module';
 import { AuthGuard,
     AuthInterceptor,API_BASE_URL } from './shared/shared';
+import { AppointmentComponent } from './main/apps/hasslefree/appointment/appointment.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 const appRoutes: Routes = [
     {
         path: 'auth/login',
@@ -59,6 +59,10 @@ const appRoutes: Routes = [
     {
         path: 'auth/reset-password',
         component: ResetPasswordComponent
+    },
+    {
+        path: 'apps/hasslefree/appointment',
+        component: AppointmentComponent
     },
     {
         path: 'apps',
@@ -85,7 +89,8 @@ const appRoutes: Routes = [
         ForgotPasswordComponent,
         MailConfirmComponent,
         RegisterComponent,
-        ResetPasswordComponent
+        ResetPasswordComponent,
+        AppointmentComponent
     ],
     imports: [
         BrowserModule,
@@ -125,6 +130,17 @@ const appRoutes: Routes = [
         FuseThemeOptionsModule,
         FuseSearchBarModule,
         FuseShortcutsModule,
+        MatDatepickerModule,
+        MatDialogModule,
+        MatTooltipModule,
+        MatOptionModule,
+        MatSelectModule,
+        MatStepperModule,
+        MatAutocompleteModule,
+        MatRadioModule,
+        MatChipsModule, 
+        OwlDateTimeModule, 
+        OwlNativeDateTimeModule,
 
         // App modules
 
