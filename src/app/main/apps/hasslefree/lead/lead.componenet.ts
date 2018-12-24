@@ -432,8 +432,8 @@ this.selecteditem=null;
 
     addActivity() {
         const dialogRef = this.dialog.open(AddLeadActivityComponent, {
-            height: '500px',
-            width: '800px'
+            height: '600px',
+            width: '900px'
         });
     }
 
