@@ -9,9 +9,44 @@ import { HassleService } from '../hasslefree.service';
 import { takeUntil } from 'rxjs/internal/operators';
 import {SelectItem} from 'primeng/api';
 import {MatAutocompleteSelectedEvent, MatChipInputEvent, MatAutocomplete} from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+
+
+export interface PeriodicElement {
+  product: string;
+  quantity: string;
+  rate: string;
+  amount: string;
+  activity: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+  {product: 'lorem', quantity: 'lorem', rate: 'lorem', amount: '1500', activity: ''},
+  {product: 'lorem', quantity: 'lorem', rate: 'lorem', amount: '1500', activity: ''},
+  {product: 'lorem', quantity: 'lorem', rate: 'lorem', amount: '1500', activity: ''},
+  {product: 'lorem', quantity: 'lorem', rate: 'lorem', amount: '1500', activity: ''},
+];
+
+export interface ActivityElement {
+  title: string;
+  location: string;
+  status: string;
+  related: string;
+  owner: string;
+  activity: string;
+}
+
+const ACTIVITY_DATA: ActivityElement[] = [
+  {title: 'lorem', location: 'lorem', status: 'lorem', related: 'lorem', owner: 'Selva', activity: ''},
+  {title: 'lorem', location: 'lorem', status: 'lorem', related: 'lorem', owner: 'Selva', activity: ''},
+  {title: 'lorem', location: 'lorem', status: 'lorem', related: 'lorem', owner: 'Selva', activity: ''},
+  {title: 'lorem', location: 'lorem', status: 'lorem', related: 'lorem', owner: 'Raj', activity: ''},
+];
+
 @Component({
     selector: 'lead',
     templateUrl: './lead.component.html',
+    styleUrls: ['./lead.component.scss'],
     encapsulation: ViewEncapsulation.None,
     animations: fuseAnimations
 })
@@ -44,12 +79,16 @@ export class LeadComponent implements OnInit {
   filteredFruits: Observable<string[]>;
   fruits: string[] = ['option'];
   allFruits: string[] = ['Option1', 'Option1', 'Option1', 'Option1', 'Option1'];
+  displayedColumns: string[] = ['product', 'quantity', 'rate', 'amount', 'activity'];
+  dataSource = ELEMENT_DATA;
+  displayedActivityColumns: string[] = ['title', 'location', 'status', 'related', 'owner', 'activity'];
+  activitydataSource = ACTIVITY_DATA;
 
   @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
   @ViewChild('auto') matAutocomplete: MatAutocomplete;
 
 
-    constructor(private hasslefree: HassleService, private _formBuilder: FormBuilder, private eRef: ElementRef) {
+    constructor(private hasslefree: HassleService, private _formBuilder: FormBuilder, private eRef: ElementRef, public dialog: MatDialog) {
         this.filteredFruits = this.fruitCtrl.valueChanges.pipe(
             startWith(null),
             map((fruit: string | null) => fruit ? this._filter1(fruit) : this.allFruits.slice()));
@@ -391,6 +430,62 @@ this.selecteditem=null;
         });
     }
 
+    addActivity() {
+        const dialogRef = this.dialog.open(AddLeadActivityComponent, {
+            height: '500px',
+            width: '800px'
+        });
+    }
+
 }
 
 
+@Component({
+  selector: 'app-addleadactivity',
+  templateUrl: './addleadactivity.component.html',
+  styleUrls: ['./lead.component.scss']
+})
+
+export class AddLeadActivityComponent implements OnInit {
+
+    appointmentForm: FormGroup;
+    title: FormControl;
+    fromdate: FormControl;
+    todate: FormControl;
+    errors: any;
+    myControl = new FormControl();
+    options: string[] = ['One', 'Two', 'Three'];
+    filteredOptions: Observable<string[]>;
+
+    constructor() { }
+
+    ngOnInit() {
+        this.addAppointmentControls();
+        this.addAppointmentForm();
+        this.filteredOptions = this.myControl.valueChanges
+          .pipe(
+            startWith(''),
+            map(value => this._filter(value))
+          );
+    }
+
+    private _filter(value: string): string[] {
+      const filterValue = value.toLowerCase();
+
+      return this.options.filter(option => option.toLowerCase().includes(filterValue));
+    }
+
+    addAppointmentControls() { 
+        this.title = new FormControl('', Validators.required);
+        this.fromdate = new FormControl('', Validators.required);
+        this.todate = new FormControl('', Validators.required);
+    }
+
+    addAppointmentForm() { 
+        this.appointmentForm = new FormGroup({
+             title: this.title,
+             fromdate: this.fromdate,
+             todate: this.todate,
+        });  
+    }
+}

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {
     MatButtonModule, MatDatepickerModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSlideToggleModule, MatToolbarModule, MatTooltipModule
-,MatOptionModule,MatSelectModule,MatStepperModule,MatAutocompleteModule,MatCheckboxModule,MatRadioModule,MatChipsModule
+,MatOptionModule,MatSelectModule,MatStepperModule,MatAutocompleteModule,MatCheckboxModule,MatRadioModule,MatChipsModule, MatTableModule
 } from '@angular/material';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { CalendarModule as AngularCalendarModule, DateAdapter } from 'angular-calendar';
@@ -15,7 +15,10 @@ import { FuseConfirmDialogModule } from '@fuse/components';
 import { HassleService } from './hasslefree.service';
 import { LeadComponent } from './lead/lead.componenet';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AppointmentComponent } from './appointment/appointment.component';
+//import { AppointmentComponent } from './appointment/appointment.component';
+//import { EditleadComponent } from './editlead/editlead.component';
+import { AddActivityComponent } from './editlead/editlead.component';
+import { AddLeadActivityComponent } from './lead/lead.componenet';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 
@@ -30,7 +33,9 @@ const routes: Routes = [
 @NgModule({
     declarations: [
         LeadComponent,
-        AppointmentComponent
+        //EditleadComponent,
+        AddActivityComponent,
+        AddLeadActivityComponent
     ],
     imports: [
         RouterModule.forChild(routes),
@@ -53,6 +58,7 @@ const routes: Routes = [
         MatRadioModule,
         ReactiveFormsModule,
         MatChipsModule,
+        MatTableModule,
         AngularCalendarModule.forRoot({
             provide: DateAdapter,
             useFactory: adapterFactory
@@ -66,9 +72,10 @@ const routes: Routes = [
         OwlNativeDateTimeModule,
     ],
   
-  providers      : [
+    providers      : [
         HassleService
     ],
+    entryComponents: [AddActivityComponent, AddLeadActivityComponent]
 })
 export class HasslefreeModule {
 }
