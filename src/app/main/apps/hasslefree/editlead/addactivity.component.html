@@ -1,6 +1,8 @@
+<mat-dialog-content>
 <div id="appointment" class="page-layout carded fullwidth">
     
-    <h2 class="appointment-heading"><span>Add Appointment</span></h2>
+    <h2 class="appointment-heading-h2"><span>Add Appointment</span></h2>
+    <button mat-dialog-close class="close-btn">X</button>
     <div class="center">
         <form [formGroup]="appointmentForm">
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field">
@@ -117,10 +119,11 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field">
                 <div fxLayout="row" fxFlex="100%" class="btn-field">
-                   <button mat-button class="cancel-btn">Cancel</button>
+                   <button mat-button class="cancel-btn" mat-dialog-close>Cancel</button>
                    <button mat-button class="submit-btn">Submit</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+</mat-dialog-content>

@@ -28,27 +28,27 @@ export class AppointmentComponent implements OnInit {
 	      .pipe(
 	        startWith(''),
 	        map(value => this._filter(value))
-	    );
+	      );
     }
 
-     private _filter(value: string): string[] {
+    private _filter(value: string): string[] {
       const filterValue = value.toLowerCase();
 
       return this.options.filter(option => option.toLowerCase().includes(filterValue));
     }
 
-	addAppointmentControls() { 
+	  addAppointmentControls() { 
 	    this.title = new FormControl('', Validators.required);
 	    this.fromdate = new FormControl('', Validators.required);
 	    this.todate = new FormControl('', Validators.required);
-	}
+	  }
 
-	addAppointmentForm() { 
+	  addAppointmentForm() { 
 	      this.appointmentForm = new FormGroup({
 	         title: this.title,
 	         fromdate: this.fromdate,
 	         todate: this.todate,
 	      });  
-	}
+	  }
 
 }

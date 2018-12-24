@@ -39,6 +39,7 @@ import { AuthGuard,
     AuthInterceptor,API_BASE_URL } from './shared/shared';
 import { AppointmentComponent } from './main/apps/hasslefree/appointment/appointment.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { EditleadComponent } from './main/apps/hasslefree/editlead/editlead.component';
 const appRoutes: Routes = [
     {
         path: 'auth/login',
@@ -63,6 +64,10 @@ const appRoutes: Routes = [
     {
         path: 'apps/hasslefree/appointment',
         component: AppointmentComponent
+    },
+    {
+        path: 'apps/hasslefree/edit-appointment',
+        component: EditleadComponent
     },
     {
         path: 'apps',
@@ -90,7 +95,8 @@ const appRoutes: Routes = [
         MailConfirmComponent,
         RegisterComponent,
         ResetPasswordComponent,
-        AppointmentComponent
+        AppointmentComponent,
+        EditleadComponent
     ],
     imports: [
         BrowserModule,
