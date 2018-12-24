@@ -40,6 +40,7 @@ import { AuthGuard,
 import { AppointmentComponent } from './main/apps/hasslefree/appointment/appointment.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { EditleadComponent } from './main/apps/hasslefree/editlead/editlead.component';
+import { AddLeadActivityComponent } from './main/apps/hasslefree/lead/lead.componenet';
 const appRoutes: Routes = [
     {
         path: 'auth/login',
@@ -62,18 +63,18 @@ const appRoutes: Routes = [
         component: ResetPasswordComponent
     },
     {
+        path: 'apps',
+        component: LayoutComponent,
+        loadChildren: './main/apps/apps.module#AppsModule',
+        // canActivate: [AuthGuard]
+    },
+    {
         path: 'apps/hasslefree/appointment',
         component: AppointmentComponent
     },
     {
         path: 'apps/hasslefree/edit-appointment',
         component: EditleadComponent
-    },
-    {
-        path: 'apps',
-        component: LayoutComponent,
-        loadChildren: './main/apps/apps.module#AppsModule',
-        // canActivate: [AuthGuard]
     },
     {
         path: '**',
@@ -96,14 +97,15 @@ const appRoutes: Routes = [
         RegisterComponent,
         ResetPasswordComponent,
         AppointmentComponent,
-        EditleadComponent
+        EditleadComponent,
+        AddLeadActivityComponent
     ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
         PrimeModule,
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forRoot(appRoutes, {enableTracing: true}),
 
         TranslateModule.forRoot(),
         InMemoryWebApiModule.forRoot(FakeDbService, {
@@ -157,7 +159,9 @@ const appRoutes: Routes = [
         {provide: API_BASE_URL, useValue:"http://localhost:55093"}],
     bootstrap: [
         AppComponent
-    ]
+    ],
+    entryComponents: [AddLeadActivityComponent]
+    
 })
 export class AppModule {
 }

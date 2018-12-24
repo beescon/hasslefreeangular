@@ -9,35 +9,26 @@ import { CalendarModule as AngularCalendarModule, DateAdapter } from 'angular-ca
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { PrimeModule } from '../../../prime.module'
 import { FuseSharedModule } from '@fuse/shared.module';
-import {  FuseSidebarModule } from '@fuse/components';
-
+import { FuseSidebarModule } from '@fuse/components';
 import { FuseConfirmDialogModule } from '@fuse/components';
 import { HassleService } from './hasslefree.service';
 import { LeadComponent } from './lead/lead.componenet';
 import { ReactiveFormsModule } from '@angular/forms';
-//import { AppointmentComponent } from './appointment/appointment.component';
-//import { EditleadComponent } from './editlead/editlead.component';
-import { AddLeadActivityComponent } from './lead/lead.componenet';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
-
 
 const routes: Routes = [
     {
-        path: '**',
-        component: LeadComponent,
-        children: [], 
+        path: '',
+        component: LeadComponent
     }
 ];
 
 @NgModule({
     declarations: [
-        LeadComponent,
-        //EditleadComponent,
-        AddLeadActivityComponent
+        LeadComponent
     ],
     imports: [
         RouterModule.forChild(routes),
-
         MatButtonModule,
         MatDatepickerModule,
         MatDialogModule,
@@ -72,8 +63,7 @@ const routes: Routes = [
   
     providers      : [
         HassleService
-    ],
-    entryComponents: [AddLeadActivityComponent]
+    ]
 })
 export class HasslefreeModule {
 }
