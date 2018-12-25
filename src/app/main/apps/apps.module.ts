@@ -5,18 +5,8 @@ import {AuthGuard} from '../../shared/shared';
 
 const routes: Routes = [
     {
-        path: 'hasslefree/lead',
+        path: '',
         loadChildren: './hasslefree/hasslefree.module#HasslefreeModule',
-        // canActivate:[AuthGuard]
-    },
-    {
-        path: 'apps/hasslefree/appointment',
-        loadChildren: './main/apps/apps.module#AppsModule',
-        // canActivate:[AuthGuard]
-    },
-    {
-        path: 'apps/hasslefree/edit-appointment',
-        loadChildren: './main/apps/apps.module#AppsModule',
         // canActivate:[AuthGuard]
     }
 ];

@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
     //     this.userService.login(this.user).
     //         subscribe(res => {
     //             if (res.token != null) {
-                    this.router.navigateByUrl('apps/hasslefree/lead');
+                    this.router.navigateByUrl('apps/lead');
             //     } else {
             //         alert(res.signInErrors[0]);
             //     }

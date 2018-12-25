@@ -15,17 +15,31 @@ import { HassleService } from './hasslefree.service';
 import { LeadComponent } from './lead/lead.componenet';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { AppointmentComponent } from './appointment/appointment.component';
+import { EditleadComponent } from './editlead/editlead.component';
+import { AddLeadActivityComponent } from './lead/lead.componenet';
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'lead',
         component: LeadComponent
+    },
+    {
+        path: 'appointment',
+        component: AppointmentComponent
+    },
+    {
+        path: 'edit-appointment',
+        component: EditleadComponent
     }
 ];
 
 @NgModule({
     declarations: [
-        LeadComponent
+        LeadComponent,
+        AppointmentComponent,
+        EditleadComponent,
+        AddLeadActivityComponent
     ],
     imports: [
         RouterModule.forChild(routes),
@@ -63,7 +77,8 @@ const routes: Routes = [
   
     providers      : [
         HassleService
-    ]
+    ],
+    entryComponents: [AddLeadActivityComponent]
 })
 export class HasslefreeModule {
 }
