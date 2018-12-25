@@ -7,7 +7,8 @@
         <form>
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field">
                 <div fxLayout="row" fxFlex="100%">
-                    <mat-form-field fxFlex="100%">
+                    <mat-form-field fxFlex="100%" appearance="outline">
+                        <mat-label>Title</mat-label>
                         <input matInput placeholder="Title" name="title" class="form-control" value="Test Appointment">
                     </mat-form-field>
                 </div>
@@ -20,14 +21,16 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field datepicker-field">
                 <div fxLayout="row" fxFlex="50%" class="padding-right">
-                    <mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>End Time</mat-label>
                       <input matInput [matDatepicker]="picker" placeholder="End Time" name="from">
                       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                       <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                 </div>
                 <div fxLayout="row" fxFlex="50%" class="padding-left">
-                    <mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Start Time</mat-label>
                         <input placeholder="Start Time" [(ngModel)]="dateTime2" [owlDateTimeTrigger]="dt2" [owlDateTime]="dt2" matInput [ngModelOptions]="{standalone: true}">
                         <owl-date-time [pickerType]="'timer'" #dt2></owl-date-time>
                     </mat-form-field>
@@ -35,29 +38,33 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field datepicker-field">
                 <div fxLayout="row" fxFlex="50%" class="padding-right">
-                    <mat-form-field>
+                    <mat-form-field appearance="outline">
+                      <mat-label>End Date</mat-label>
                       <input matInput [matDatepicker]="picker2" placeholder="End Date" name="to">
                       <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                       <mat-datepicker #picker2></mat-datepicker>
                     </mat-form-field>
                 </div>
                 <div fxLayout="row" fxFlex="50%" class="padding-left">
-                    <mat-form-field>
-                        <input placeholder="End Time" [(ngModel)]="dateTime2" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" matInput [ngModelOptions]="{standalone: true}">
+                    <mat-form-field appearance="outline">
+                        <mat-label>End Time</mat-label>
+                        <input placeholder="End Time" [(ngModel)]="dateTime3" [owlDateTimeTrigger]="dt3" [owlDateTime]="dt3" matInput [ngModelOptions]="{standalone: true}">
                         <owl-date-time [pickerType]="'timer'" #dt3></owl-date-time>
                     </mat-form-field>
                 </div>
             </div>
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field">
                 <div fxLayout="row" fxFlex="100%">
-                    <mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Activity Location</mat-label>
                         <input type="text" name="activity-location" matInput placeholder="Activity Location" value="Lorem">
                     </mat-form-field>
                 </div>
             </div>
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field">
                 <div fxLayout="row" fxFlex="100%">
-                    <mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Activity Status</mat-label>
                         <mat-select placeholder="Activity Status" [value]="selected">
                             <mat-option value="scheduled">Scheduled</mat-option>
                             <mat-option value="interested">Interested</mat-option>
@@ -70,7 +77,8 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field">
                 <div fxLayout="row" fxFlex="100%">
-                    <mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Activity Source</mat-label>
                         <mat-select placeholder="Activity Source" [value]="source">
                             <mat-option value="lead">Lead</mat-option>
                             <mat-option value="opportunity">Opportunity</mat-option>
@@ -81,7 +89,8 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field">
                 <div fxLayout="row" fxFlex="100%">
-                    <mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Activity related to</mat-label>
                         <input type="text" placeholder="Activity related to" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
                         <mat-autocomplete #auto="matAutocomplete">
                           <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
@@ -93,7 +102,8 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field">
                 <div fxLayout="row" fxFlex="100%">
-                    <mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Activity Owner</mat-label>
                         <mat-select placeholder="Activity Owner" [value]="owner">
                             <mat-option value="raj">Raj</mat-option>
                             <mat-option value="selva">Selva</mat-option>
@@ -103,7 +113,8 @@
             </div>
             <div fxLayout="row" fxLayoutAlign="start center" class="filter-field">
                 <div fxLayout="row" fxFlex="100%">
-                    <mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Notes</mat-label>
                         <textarea placeholder="Notes" matInput value="Lorem Ipsum is simply dummy text of the printing and typesetting industry."></textarea>
                     </mat-form-field>
                 </div>
